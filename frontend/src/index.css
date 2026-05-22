@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.leaflet-container {
+  background: #1e293b !important;
+  border-radius: 0.5rem;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #334155;
+}
+
+.recharts-text {
+  fill: #94a3b8 !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  border-radius: 8px !important;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.status-good { color: #22c55e; }
+.status-warning { color: #f59e0b; }
+.status-danger { color: #ef4444; }
+.status-critical { color: #dc2626; }
+
+.card {
+  @apply bg-slate-800 border border-slate-700 rounded-xl p-4;
+}
+
+.badge-good { @apply bg-green-900/40 text-green-400 border border-green-800; }
+.badge-moderate { @apply bg-yellow-900/40 text-yellow-400 border border-yellow-800; }
+.badge-warning { @apply bg-orange-900/40 text-orange-400 border border-orange-800; }
+.badge-danger { @apply bg-red-900/40 text-red-400 border border-red-800; }
+.badge-critical { @apply bg-red-950/60 text-red-300 border border-red-900; }
