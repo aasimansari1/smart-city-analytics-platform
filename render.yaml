@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: smart-city-analytics-platform
+    env: python
+    region: singapore   # closest free region to India
+    plan: free
+    buildCommand: |
+      pip install -r backend/requirements.txt &&
+      cd frontend && npm install && npm run build
+    startCommand: cd backend && python run.py
+    envVars:
+      - key: RENDER
+        value: "true"
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    disk:
+      name: db
+      mountPath: /opt/render/project/src/backend
+      sizeGB: 1
