@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Bell, User, LogOut, RefreshCw, Sun, ChevronDown } from 'lucide-react'
+import { Bell, User, LogOut, RefreshCw, Sun, Moon, ChevronDown } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 
 export default function Header({ title, onRefresh, loading }) {
-  const { state, logout } = useApp()
+  const { state, logout, toggleTheme } = useApp()
   const navigate = useNavigate()
   const [showUserMenu, setShowUserMenu] = useState(false)
 
@@ -34,6 +34,12 @@ export default function Header({ title, onRefresh, loading }) {
             <RefreshCw size={15} className={loading ? 'animate-spin' : ''} />
           </button>
         )}
+
+        <button onClick={toggleTheme}
+          title={state.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          className="p-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg transition-colors">
+          {state.theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
 
         <button onClick={() => navigate('/alerts')}
           className="relative p-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg transition-colors">

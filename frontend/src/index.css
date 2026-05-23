@@ -12,6 +12,16 @@
   --accent: #3b82f6;
 }
 
+html.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #2563eb;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -92,3 +102,90 @@ body {
 .badge-warning { @apply bg-orange-900/40 text-orange-400 border border-orange-800; }
 .badge-danger { @apply bg-red-900/40 text-red-400 border border-red-800; }
 .badge-critical { @apply bg-red-950/60 text-red-300 border border-red-900; }
+
+/* ── Light mode overrides ────────────────────────────────────────────────── */
+/* Higher specificity (2 classes) beats Tailwind's single-class utilities     */
+
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Backgrounds */
+html.light .bg-slate-950 { background-color: #f1f5f9; }
+html.light .bg-slate-900 { background-color: #f8fafc; }
+html.light .bg-slate-800 { background-color: #ffffff; }
+html.light .bg-slate-700 { background-color: #f1f5f9; }
+
+/* Hover backgrounds */
+html.light .hover\:bg-slate-800:hover { background-color: #f1f5f9; }
+html.light .hover\:bg-slate-700:hover { background-color: #e2e8f0; }
+
+/* Borders */
+html.light .border-slate-700 { border-color: #e2e8f0; }
+html.light .border-slate-600 { border-color: #cbd5e1; }
+
+/* Text */
+html.light .text-white      { color: #0f172a; }
+html.light .text-slate-100  { color: #1e293b; }
+html.light .text-slate-200  { color: #334155; }
+html.light .text-slate-300  { color: #475569; }
+html.light .text-slate-400  { color: #64748b; }
+html.light .text-slate-500  { color: #94a3b8; }
+
+html.light .hover\:text-slate-200:hover { color: #0f172a; }
+
+/* Inputs */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-color: #e2e8f0;
+}
+html.light input::placeholder { color: #94a3b8; }
+
+/* Recharts */
+html.light .recharts-cartesian-grid-horizontal line,
+html.light .recharts-cartesian-grid-vertical line { stroke: #e2e8f0; }
+html.light .recharts-text { fill: #475569 !important; }
+html.light .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Leaflet */
+html.light .leaflet-container { background: #e2e8f0 !important; }
+
+/* Scrollbar */
+html.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Card utility */
+html.light .card { background-color: #ffffff; border-color: #e2e8f0; }
+
+/* Badges in light mode */
+html.light .badge-good     { background-color: #dcfce7; color: #16a34a; border-color: #bbf7d0; }
+html.light .badge-moderate { background-color: #fef9c3; color: #ca8a04; border-color: #fef08a; }
+html.light .badge-warning  { background-color: #ffedd5; color: #ea580c; border-color: #fed7aa; }
+html.light .badge-danger   { background-color: #fee2e2; color: #dc2626; border-color: #fecaca; }
+html.light .badge-critical { background-color: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+
+/* Status text */
+html.light .status-good     { color: #16a34a; }
+html.light .status-warning  { color: #d97706; }
+html.light .status-danger   { color: #dc2626; }
+html.light .status-critical { color: #b91c1c; }
+
+/* Notification toasts */
+html.light .bg-red-900   { background-color: #fee2e2; }
+html.light .bg-green-900 { background-color: #dcfce7; }
+html.light .bg-blue-900  { background-color: #dbeafe; }
+html.light .text-red-200   { color: #991b1b; }
+html.light .text-green-200 { color: #166534; }
+html.light .text-blue-200  { color: #1e40af; }
+html.light .border-red-700   { border-color: #fca5a5; }
+html.light .border-green-700 { border-color: #86efac; }
+html.light .border-blue-700  { border-color: #93c5fd; }

@@ -1,6 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
+
+// Apply saved theme before first render to avoid flash
+const savedTheme = localStorage.getItem('theme') || 'dark'
+document.documentElement.classList.add(savedTheme)
 import Dashboard from './pages/Dashboard'
 import Traffic from './pages/Traffic'
 import Pollution from './pages/Pollution'

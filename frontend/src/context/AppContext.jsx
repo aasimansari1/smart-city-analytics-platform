@@ -11,6 +11,7 @@ const initialState = {
   zones: [],
   loading: false,
   notification: null,
+  theme: localStorage.getItem('theme') || 'dark',
 }
 
 function reducer(state, action) {
@@ -33,6 +34,11 @@ function reducer(state, action) {
       return { ...state, loading: action.payload }
     case 'SET_NOTIFICATION':
       return { ...state, notification: action.payload }
+    case 'TOGGLE_THEME': {
+      const next = state.theme === 'dark' ? 'light' : 'dark'
+      localStorage.setItem('theme', next)
+      return { ...state, theme: next }
+    }
     default:
       return state
   }
@@ -40,6 +46,12 @@ function reducer(state, action) {
 
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    const html = document.documentElement
+    html.classList.toggle('dark', state.theme === 'dark')
+    html.classList.toggle('light', state.theme === 'light')
+  }, [state.theme])
 
   const login = async (username, password) => {
     const res = await authAPI.login({ username, password })
@@ -60,8 +72,10 @@ export function AppProvider({ children }) {
     setTimeout(() => dispatch({ type: 'SET_NOTIFICATION', payload: null }), 4000)
   }
 
+  const toggleTheme = () => dispatch({ type: 'TOGGLE_THEME' })
+
   return (
-    <AppContext.Provider value={{ state, dispatch, login, logout, notify }}>
+    <AppContext.Provider value={{ state, dispatch, login, logout, notify, toggleTheme }}>
       {children}
     </AppContext.Provider>
   )
