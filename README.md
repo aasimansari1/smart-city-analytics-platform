@@ -8,6 +8,8 @@ An AI-powered full-stack Smart City Analytics Platform that collects, analyzes, 
 
 > Free tier — first load may take 30–60 seconds to wake up.
 
+![SmartCity Analytics Platform Demo](.github/demo.gif)
+
 ## ✨ Features
 
 ### Core Modules
