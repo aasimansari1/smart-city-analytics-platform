@@ -4,12 +4,10 @@ services:
     env: python
     region: singapore
     plan: free
-    buildCommand: pip install -r backend/requirements.txt && cd frontend && npm install && npm run build
+    buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && python run.py
     envVars:
       - key: RENDER
         value: "true"
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: NODE_VERSION
-        value: "18.20.0"

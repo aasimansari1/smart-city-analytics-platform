@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 .Python
 *.egg-info/
-dist/
+backend/dist/
 build/
 .env
 venv/
@@ -17,7 +17,7 @@ env/
 
 # Node
 node_modules/
-dist/
+# frontend/dist is intentionally committed for Render deployment
 .DS_Store
 
 # Logs
