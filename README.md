@@ -4,7 +4,9 @@ An AI-powered full-stack Smart City Analytics Platform that collects, analyzes, 
 
 ## 🚀 Live Demo
 
-> Deploy instructions below.
+**[https://smart-city-analytics-platform.onrender.com](https://smart-city-analytics-platform.onrender.com)**
+
+> Free tier — first load may take 30–60 seconds to wake up.
 
 ## ✨ Features
 
@@ -17,6 +19,7 @@ An AI-powered full-stack Smart City Analytics Platform that collects, analyzes, 
 - **Smart Alerts System** — Multi-category alerts with severity levels, read/resolve workflow
 - **AI Chatbot** — Context-aware city assistant powered by live data
 - **Admin Panel** — Zone management, user management, downloadable analytics reports
+- **Dark / Light Mode** — Toggle in the header, preference saved across sessions
 
 ### Tech Stack
 
