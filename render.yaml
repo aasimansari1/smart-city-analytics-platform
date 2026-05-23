@@ -1,13 +1,9 @@
 services:
   - type: web
     name: smart-city-analytics-platform
-    env: python
+    env: docker
     region: singapore
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && python run.py
     envVars:
       - key: RENDER
         value: "true"
-      - key: PYTHON_VERSION
-        value: "3.11.0"
